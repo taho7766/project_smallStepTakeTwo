@@ -12,22 +12,21 @@ app.use(express.json());
 
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB Connected!'))
-.catch(err => console.error(err));
+    useUnifiedTopology: true
+  })
+  .then(() => console.log('MongoDB Connected!'))
+  .catch(err => console.error(err));
 
 //simple route
 app.get('/', (req, res) => {
     res.send('backend says hi');
 });
 
-
-
+app.use('/projects', projectRoutes);
 app.use('/api/projects', projectRoutes);
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log('Server is running on port ${PORT}');
+    console.log('Server is running on port 5000');
 });
