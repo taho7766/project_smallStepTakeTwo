@@ -13,8 +13,15 @@ const userSchema = new mongoose.Schema({
     },
     date: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    passwordResetToken: String,
+    passwordResetExpires: Date
 });
 
 userSchema.pre('save', async function(next) {
@@ -27,8 +34,8 @@ userSchema.pre('save', async function(next) {
     next();
 });
 
-userSchema.method.isValidPassword = async function(password) {
-    return await bcrypt.compare(passworrd, this.password);
+userSchema.methods.isValidPassword = async function(password) {
+    return await bcrypt.compare(pasworrd, this.password);
 }
 
 module.exports = mongoose.model('user', userSchema);

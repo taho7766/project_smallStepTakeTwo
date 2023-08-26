@@ -1,9 +1,12 @@
+require('dotenv').config({ path: '../.env' });
+
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
+const userRoutes = require('./routes/userRoutes');
 
-const MONGO_URI = 'mongodb+srv://taho7766:Boxhead9802@projectportfolio.wxz5wab.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URI = process.env.MONGO_URI;
 const projectRoutes = require('./routes/projectRoutes');
 
 // middleware
@@ -23,10 +26,15 @@ app.get('/', (req, res) => {
 });
 
 app.use('/projects', projectRoutes);
-app.use('/api/projects', projectRoutes);
+app.use('/users', userRoutes)
 
 const PORT = process.env.PORT || 5000;
 
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong.');
+});
+
 app.listen(PORT, () => {
-    console.log('Server is running on port 5000');
+    console.log('Server is running on port ${5000}');
 });

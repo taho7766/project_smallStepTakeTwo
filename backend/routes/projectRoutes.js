@@ -4,8 +4,8 @@ const { getProjects, createProject, getProjectById, updateProject, deleteProject
 
 router.get('/', getProjects); // Lists all projects
 router.post('/', createProject); // Adds a new project
-router.get('/:id', getProjectById); // TODO: Implement this
-router.put('/:id', updateProject); // TODO: Implement this
-router.delete('/:id', deleteProject); // TODO: Implement this
+router.get('/:id', getProjectById);
+router.put('/:id', updateProject);
+router.delete('/:id', deleteProject);
 
 module.exports = router;
