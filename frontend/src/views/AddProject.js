@@ -31,7 +31,7 @@ const AddProject = () => {
             console.log('Success', data);
         })
         .catch((error) => {
-            console.error('Error:' error);
+            console.error('Error:', error);
         });
     };
 }
