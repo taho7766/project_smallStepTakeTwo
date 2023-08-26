@@ -9,5 +9,13 @@ const AddProject = () => {
         projectURL: ''
     });
 
-    const
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setProject({
+            ...project,
+            [name]: value
+        });
+    };
+
+    
 }
