@@ -34,4 +34,35 @@ const AddProject = () => {
             console.error('Error:', error);
         });
     };
-}
+
+    return (
+        <div>
+            <h1>Add Project</h1>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <lable>Title</lable>
+                    <input type='text' name='title' value={project.title} onChange={handleChange} required />
+                </div>
+                <div>
+                    <lable>description</lable>
+                    <textarea name='description' value={project.description} onChange={handleChange} required></textarea>
+                </div>
+                <div>
+                    <lable>Technologies</lable>
+                    <input type='text' name='technologies' value={project.technologies} onChange={handleChange} required />
+                </div>
+                <div>
+                    <label>Image URL</label>
+                    <input type='text' name='imageURL' value={project.imageURL} onChange={handleChange} />
+                </div>
+                <div>
+                    <label>ProjectURL</label>
+                    <input type='url' name='projectURL' value={project.projectURL} onChange={handleChange} required />
+                </div>
+                <button type='submit'>Add Project</button>
+            </form>
+        </div>
+    );
+};
+
+export default AddProject;
