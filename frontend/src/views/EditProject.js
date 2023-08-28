@@ -23,4 +23,21 @@ const EditProject = (props) => {
             [name]: value
         });
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        fetch(`http://localhost:5000/projects/${props.match.params.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(project)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Project updated', data);
+                props.history.push(`/projects/${props.match.params.id}`);
+            });
+    }
 }
