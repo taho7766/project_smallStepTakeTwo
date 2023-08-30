@@ -1,18 +1,15 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Router from './Router';
 import LoadingScreen from './components/LoadingScreen';
 import IntroPage from './components/IntroPage';
 
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/intro" component={IntroPage} />
-        <Route path="/" exact component={LoadingScreen} />
-      </Switch>
-    </Router>
+    <div className='App'>
+      <Router />
+    </div>
   );
 }
 
