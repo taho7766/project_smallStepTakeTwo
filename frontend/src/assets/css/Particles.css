@@ -1,0 +1,8 @@
+#tsparticles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 100vh;
+    z-index: 0; /* Ensure particles are in the background */
+}

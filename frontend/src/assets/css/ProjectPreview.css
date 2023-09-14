@@ -1,0 +1,18 @@
+.project-preview {
+    border: 1px solid #dddd;
+    padding: 10px;
+    transform: tranform 0.3s;
+}
+
+.project-preview:hover {
+    transform: scale(1.50);
+}
+
+.project-preview img {
+    max-width: 100%;
+    height: auto;
+}
+
+.project-preview-content {
+    padding: 10px;
+}

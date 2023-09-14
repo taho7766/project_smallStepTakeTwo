@@ -73,5 +73,5 @@ module.exports = {
     createProject,
     getProjectById,
     updateProject,
-    deleteProject,
+    deleteProject
 };

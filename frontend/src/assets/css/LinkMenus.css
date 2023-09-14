@@ -1,0 +1,35 @@
+.home-menu-container {
+    background-color: transparent;
+    position: absolute;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    top: 10px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.custom-link:not(:last-child) {
+    margin-bottom: 30vh;
+}
+
+.non-home-menu-container{
+    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.custom-link {
+    text-decoration: none;
+    color: #f81515;;
+    transition: color 0.5s ease;
+}
+
+.custom-link:hover {
+    color: #fb2727
+}

@@ -6,7 +6,11 @@ const jwtSecret = process.env.JWT_SECRET;
 
 const auth = async (req, res, next) => {
     try {
-        const token = req.header('Authorization').replace('Bearer ', '');
+        const token = req.cookies.token;
+        if (!token) {
+            throw new Error('No token');
+        }
+
         const decoded = jwt.verify(token, jwtSecret);
         console.log('Decoded', decoded);
         const user = await User.findOne({ _id: decoded.userId });
@@ -15,7 +19,6 @@ const auth = async (req, res, next) => {
             throw new Error();
         }
 
-        req.token = token;
         req.user = user;
         next();
     } catch(error) {

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const ViewProject = (props) => {
-    const [project, setProject] = useState(null);
+    const [projects, setProjects] = useState([]);
     const [error, setError] = useState(null);
+    const { id  } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/projects/${props.match.params.id}`)
+        console.log(id);
+        fetch(`http://localhost:5000/projects/${id}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -16,27 +19,27 @@ const ViewProject = (props) => {
                 if (data.message) {
                     setError(data.message);
                 } else {
-                    setProject(data);
+                    setProjects(data);
                 }
             })
             .catch(error => setError(error.message));
-    }, [props.match.params.id]);
+    }, [id]);
 
     if (error) {
         return <div>Error: {error}</div>;
     }
 
-    if (!project) {
+    if (!projects) {
         return <div>Loading...</div>;
     }
 
     return (
         <div>
-            <h1>{project.title}</h1>
-            <p>{project.description}</p>
-            <p>Technologies: {project.technologies.join(', ')}</p>
-            <img src={project.imageURL} alt={project.title} />
-            <a href={project.projectURL} target="_blank" rel="noopener noreferrer">View Project</a>
+            <h1>{projects.title}</h1>
+            <p>{projects.description}</p>
+            <p>Technologies: {projects.technologies.join(', ')}</p>
+            <img src={projects.imageURL} alt={projects.title} />
+            <a href={projects.projectURL} target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
     );
 }

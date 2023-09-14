@@ -1,0 +1,37 @@
+.list-projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-preview {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.project-preview:hover {
+    transform: scale(1.05);
+}
+
+.admin-options button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+.admin-options button:hover {
+    background-color: #0056b3;
+}

@@ -1,14 +1,28 @@
-import React from 'react';
-import './App.css';
-import Router from './Router';
-import LoadingScreen from './components/LoadingScreen';
-import IntroPage from './components/IntroPage';
+import React, { useState, useEffect, useContext } from 'react';
+import './assets/css/App.css';
+import Router from './routes/Router';
+import AuthProvider from './contexts/AuthContext';
+import Loader from './components/Loader.js';
+import './assets/css/global.css'
 
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  if (loading) {
+    return <div className='loading-screen'><Loader /></div>;
+  }
+
   return (
     <div className='App'>
-      <Router />
+      <AuthProvider>
+        <Router />
+      </AuthProvider>
     </div>
   );
 }
