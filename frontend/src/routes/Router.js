@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 
-import ParticlesBackground from "../components/ParticlesBackground"
+import ParticlesBackground from "../components/ParticlesBackground";
 import ListProjects from '../views/ListProjects';
 import AddProject from '../components/AddProject';
 import EditProject from '../components/EditProject';
@@ -16,18 +16,18 @@ import HomePage from '../views/HomePage';
 
 const Router = () => {
     const [absorberActive, setAbsorberActive] = useState(false);
-    const particlesRef = useRef(null);
+    const particlesContainer = useRef(null);
 
     return (
         <BrowserRouter>
-            <ParticlesBackground ref={particlesRef} absorberActive={ absorberActive }/>
+            <ParticlesBackground ref={particlesContainer} absorberActive={ absorberActive }/>
             <AnimatePresence mode='wait'>
                 <Routes>
                     <Route path='/' element={
                         <MotionPage>
                             <IntroPage 
                                 setAbsorberActive={setAbsorberActive}
-                                onLinkClick={() => particlesRef.current.handleLinkClick()}
+                                onLinkClick={() => particlesContainer.current.handleLinkClick()}
                             />
                         </MotionPage>
                     } />

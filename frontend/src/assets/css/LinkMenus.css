@@ -1,35 +1,60 @@
 .home-menu-container {
-    background-color: transparent;
+    top: 50%;
+    transform: translateY(-50%);
     position: absolute;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    top: 10px;
-    right: 40px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    width: fit-content;
+    right: 20px;
+}
+.home-menu-container:hover {
+    height: 100%;
+    width: fit-content
 }
 
-.custom-link:not(:last-child) {
-    margin-bottom: 30vh;
-}
-
-.non-home-menu-container{
-    background-color: transparent;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.dots-container, .links {
+    /* removed position, top, and transform properties */
     display: flex;
-    flex-direction: row;
-    gap: 30px;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute; /* Use absolute positioning within the container */
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
+.links {
+    justify-content: space-around;
+    height: 100%;
+}
+
+.dots-container {
+    border: 1px #67deff solid;
+    border-radius: 25px;
+    padding: 10px;
+}
+  
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: #1fccfc;
+    border-radius: 50%;
+}
+  
+.hidden {
+    display: none;
+}
+  
 .custom-link {
     text-decoration: none;
-    color: #f81515;;
-    transition: color 0.5s ease;
+    color: #67deff;
+    transition: opacity 0.5s ease;
+    margin-top: 10px; /* adjusted margin values */
+    margin-bottom: 10px;
 }
-
+  
 .custom-link:hover {
-    color: #fb2727
+    color: #1fccfc;
 }

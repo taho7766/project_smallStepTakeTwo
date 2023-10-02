@@ -10,10 +10,14 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    position: relative;
 }
 
 
 .Intro-Content {
+    position: absolute;
+    width: 100%;
+    left: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,11 +25,14 @@
 }
 
 .start-link {
-    margin-top: 15px;
     text-decoration: none;
     color: #67deff;
     transition: color 0.5s ease;
     z-index: 10;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    font-size: x-large;
 }
 
 .start-link:hover {

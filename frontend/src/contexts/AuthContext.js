@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
                 await axios.get('/check-auth');
                 setIsAuthenticated(true);
             } catch (error) {
-                console.error(error);
+                console.trace(error);
                 setIsAuthenticated(false);
             }
         };

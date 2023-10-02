@@ -13,11 +13,11 @@ function App() {
       setLoading(false);
     }, 3000);
   }, []);
-
+/*
   if (loading) {
     return <div className='loading-screen'><Loader /></div>;
   }
-
+*/
   return (
     <div className='App'>
       <AuthProvider>
